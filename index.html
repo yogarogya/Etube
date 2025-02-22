@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Clone</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>YouTube Clone</h1>
+        <input type="text" id="search" placeholder="Search Videos...">
+        <button id="searchBtn">Search</button>
+        <button id="addChannelBtn">Add Channel</button>
+    </header>
+    
+    <aside>
+        <h2>Subscribed Channels</h2>
+        <ul id="channelList"></ul>
+    </aside>
+    
+    <main id="videoContainer">
+        <!-- Videos will be displayed here -->
+    </main>
+    
+    <script src="script.js"></script>
+    <script>
+        function addChannel() {
+            const password = prompt("Enter password to add channel:");
+            if (password === "1234") { // Replace with actual password logic
+                const channelName = prompt("Enter channel name:");
+                if (channelName) {
+                    const channelList = document.getElementById("channelList");
+                    const listItem = document.createElement("li");
+                    listItem.textContent = channelName;
+                    channelList.appendChild(listItem);
+                }
+            } else {
+                alert("Incorrect password!");
+            }
+        }
+        
+        function searchVideos() {
+            const query = document.getElementById("search").value;
+            alert("Searching for: " + query); // Placeholder for actual search logic
+        }
+        
+        document.getElementById('addChannelBtn').addEventListener('click', addChannel);
+        document.getElementById('searchBtn').addEventListener('click', searchVideos);
+    </script>
+</body>
+</html>
